@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect ,useRef} from 'react'
 
 function App() {
   const [length, setLength] = useState(6)
@@ -8,7 +8,7 @@ function App() {
 
 
   // useRef Hook
-  // const passwordRef = useRef(null)
+  const passwordRef = useRef(null)
 
   // method ==>1
 
@@ -31,11 +31,11 @@ function App() {
 
   }, [length, isNumber, isChar, setPassword])
 
-  useEffect(() => { }, [length, isNumber, isChar, passwordGenerator])
+  useEffect(() => { passwordGenerator() }, [length, isNumber, isChar, passwordGenerator])
 
-  // const copyPasswordToClipboard = useCallback(() => {
-  //   window.navigator.clipboard.writeText(password)
-  // }, [password])
+  const copyPasswordToClipboard = useCallback(() => {
+    window.navigator.clipboard.writeText(password)
+  }, [password])
 
   // method ==>2
   // useEffect(() => {
@@ -75,17 +75,17 @@ function App() {
             className='items-center outline-none w-full py-1 px-3'
             placeholder='password'
             readOnly
-            // ref={passwordRef}
+          ref={passwordRef}
           />
 
           <button
-            // onClick={copyPasswordToClipboard}
+            onClick={copyPasswordToClipboard}
             className=' bg-blue-500
            text-white px-2 
-            outline-none shrink-0'>
+            outline-none shrink-0 hover:bg-purple-400 duration-300 active:bg-red-400'>
             Copy
           </button>
-
+          
         </div>
 
         <div className='flex text-sm gap-x-2'>

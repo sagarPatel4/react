@@ -1,5 +1,5 @@
 {
-  "name": "03passwoprdgenerator",
+  "name": "04currencyconvetor",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "03passwoprdgenerator": "file:",
+    "04currencyconvetor": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
